@@ -82,20 +82,15 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent("GPS")
-AddEventHandler("GPS", function()
-    TriggerEvent("player:receiveItem", 99, 1)
+RegisterNetEvent("nomoney")
+AddEventHandler("nomoney", function()
+    exports.pNotify:SendNotification({text = "Tu n'as pas suffisamment d'argent", type = "error", layout = "bottomRight", timeout = math.random(1000, 5000)})
 	Menu.hidden = false  
 end)
 
-function GPS()
-    TriggerServerEvent("GPSs")
-	Menu.hidden = false
-end
-
-
 RegisterNetEvent("Sandwich")
 AddEventHandler("Sandwich", function()
+	exports.pNotify:SendNotification({text = "+1 Sandwich", type = "success", layout = "bottomRight", timeout = math.random(1000, 5000)})
     TriggerEvent("player:receiveItem", 30, 1)
 	Menu.hidden = false  
 end)
@@ -107,6 +102,7 @@ end
 
 RegisterNetEvent("eau")
 AddEventHandler("eau", function()
+	exports.pNotify:SendNotification({text = "+1 Eau", type = "info", layout = "bottomRight", timeout = math.random(1000, 5000)})	
     TriggerEvent("player:receiveItem", 6, 1)
 	Menu.hidden = false  
 end)
@@ -116,20 +112,10 @@ function eau()
 	Menu.hidden = false
 end
 
-RegisterNetEvent("Joint")
-AddEventHandler("Joint", function()
-    TriggerEvent("player:receiveItem", 64, 1)
-	Menu.hidden = false  
-end)
-
-function Joint()
-    TriggerServerEvent("Joints")
-	Menu.hidden = false
-end
-
 
 RegisterNetEvent("Cigarette")
 AddEventHandler("Cigarette", function()
+	exports.pNotify:SendNotification({text = "+1 Cigarette", type = "warning", layout = "bottomRight", timeout = math.random(1000, 5000)})
     TriggerEvent("player:receiveItem", 97, 1)
 	Menu.hidden = false  
 end)
@@ -141,6 +127,7 @@ end
 
 RegisterNetEvent("Alcool")
 AddEventHandler("Alcool", function()
+	exports.pNotify:SendNotification({text = "+1 Bouteille d'alcool", type = "warning", layout = "bottomRight", timeout = math.random(1000, 5000)})
     TriggerEvent("player:receiveItem", 95, 1)
 	Menu.hidden = false  
 end)
